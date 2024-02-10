@@ -1,0 +1,423 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Hangman</title>
+<script language="javascript">
+/*
+This hangman game was created by:
+Colin Pear
+cpear@hotmail.com
+http://www.pearweb.com
+
+Feel free to edit and use this code in any way you want. Just please give 
+credit to me as the originator of the code. Thanks, have fun!
+You may not sell this code without written permission from me.
+
+*/
+
+//Global variables listed at the top
+var lettersGuessed = new Array();
+var numberOfChancesLeft;
+var randNum;
+var lettersGuessedCorrect = 0;
+
+var secretWords = new Array();
+secretWords[0] = "Basketball";
+secretWords[1] = "Computer";
+secretWords[2] = "Yoda";
+secretWords[3] = "Steaks";
+secretWords[4] = "Unclassified";
+secretWords[5] = "Watermelon";
+secretWords[6] = "Turkey";
+secretWords[7] = "Christmas";
+secretWords[8] = "Penguin";
+secretWords[9] = "Pirate";
+secretWords[10] = "Snowman";
+secretWords[11] = "Pizza";
+secretWords[12] = "Moonpie";
+secretWords[13] = "Logic";
+secretWords[14] = "Javascript";
+secretWords[15] = "Lysol";
+secretWords[16] = "Electronic";
+secretWords[17] = "Wookie";
+secretWords[18] = "Panda";
+secretWords[19] = "Explosion";
+secretWords[20] = "Million";
+secretWords[21] = "Halloween";
+secretWords[22] = "Goodies";
+secretWords[23] = "Beauty";
+secretWords[24] = "Donkey";
+secretWords[25] = "Shrek";
+secretWords[26] = "Wonderland";
+secretWords[27] = "Fundamentals";
+secretWords[28] = "Potato";
+secretWords[29] = "October";
+secretWords[30] = "Knowledge";
+secretWords[31] = "Honda";
+secretWords[32] = "Cool";
+secretWords[33] = "Star";
+secretWords[34] = "Taco";
+secretWords[35] = "Salsa";
+secretWords[36] = "Shoe";
+secretWords[37] = "Sock";
+secretWords[38] = "Finger";
+secretWords[39] = "Bird";
+secretWords[40] = "Book";
+
+var hman0 = new Image();
+hman0.src = "pics/h0.gif";
+var hman1 = new Image();
+hman1.src = "pics/h1.gif";
+var hman2 = new Image();
+hman2.src = "pics/h2.gif";
+var hman3 = new Image();
+hman3.src = "pics/h3.gif";
+var hman4 = new Image();
+hman4.src = "pics/h4.gif";
+var hman5 = new Image();
+hman5.src = "pics/h5.gif";
+var hman6 = new Image();
+hman6.src = "pics/h6.gif";
+
+function startGuessProcess()
+{
+	if(numberOfChancesLeft > 0 && secretWords[randNum].length != lettersGuessedCorrect)
+	{
+		processGuess();
+	}
+	else if(numberOfChancesLeft > 0 && secretWords[randNum].length == lettersGuessedCorrect)
+	{
+		endGame("win");
+	}
+	else
+	{
+		endGame("lost");
+	}
+}
+
+function processGuess()
+{
+	usersGuess = document.getElementById("theGuess").value;
+	usersGuess = usersGuess.toLowerCase();
+	myRegExp = new RegExp("[a-z]");
+	
+	if( usersGuess != "" && usersGuess != null )
+	{
+		if( myRegExp.test(usersGuess) )
+		{
+			processLetter();
+		}
+		else
+		{ alert("Only letters can be guessed. Please go back and enter a letter in the guess box."); }
+	}
+	else
+	{ alert("Please enter a letter into the guess box."); }
+}
+
+function processLetter()
+{
+	
+	var usersGuess = document.getElementById("theGuess").value;
+	usersGuess = usersGuess.toLowerCase();
+	var usedLetter = 0; 
+	
+	for(i=0; i<lettersGuessed.length; i++)
+	{
+		//Check if letter has already been used
+		if(lettersGuessed[i] == usersGuess)
+		{ 
+			alert("You have already tried this letter. Please choose a new one.");
+			usedLetter = 1	;	
+		}
+	}
+	
+	if (usedLetter == 0)
+	{
+		//Track the letter used in the array lettersGuessed
+		lettersGuessed[lettersGuessed.length] = usersGuess;
+		
+		//Write out the letters used to the layer named 'letters'
+		if(document.getElementById("letters").innerHTML == "")
+		{
+			document.getElementById("letters").innerHTML = usersGuess.toUpperCase();
+		}
+		else
+		{
+			document.getElementById("letters").innerHTML = document.getElementById("letters").innerHTML + ", " + usersGuess.toUpperCase();
+		}
+		
+		processChance();
+	}
+}
+
+function processChance()
+{
+	if(checkLetter())
+	{
+		//If the lette is good then we check to see if they won
+		if(numberOfChancesLeft > 0 && secretWords[randNum].length == lettersGuessedCorrect)
+		{ endGame("win"); }
+	}
+	else
+	{
+		//Change the hmanPic
+		document.getElementById("hmanPic").src = eval("hman" + numberOfChancesLeft + ".src");
+	
+		//Change the number of chances
+		numberOfChancesLeft = numberOfChancesLeft - 1;
+		document.getElementById("chances").innerHTML = "<span class='header'>Chances Left:</span> " + numberOfChancesLeft;
+		
+		//End game if chances are up
+		if(numberOfChancesLeft == 0)
+		{endGame("lost");}
+	}
+	
+	//reset guessbox value to nothing
+	document.getElementById("theGuess").value = "";
+}
+
+function checkLetter()
+{
+	var doesLetterExist = 0;
+	var usersGuess = document.getElementById("theGuess").value;
+	usersGuess = usersGuess.toLowerCase();
+	
+	
+	for(i=0; i<secretWords[randNum].length; i++)
+	{
+		//alert("secretWords[randNum].charAt(" + i + ")" + secretWords[randNum].charAt(i));
+		if(secretWords[randNum].toLowerCase().charAt(i) == usersGuess)
+		{
+			document.getElementById("secretLetter" + i).src = "pics/" + usersGuess + ".gif";
+			
+			//Keep track of correctly guessed letters so we know when to stop playing
+			lettersGuessedCorrect++;
+			
+			doesLetterExist++;
+		}
+	}
+	
+	if (doesLetterExist == 0)
+	{
+		alert("There are no " + usersGuess.toUpperCase() + "'s");
+		return false;
+	}
+	else
+	{ return true; }
+	
+}
+
+function gameInit()
+{
+	//Reset Letters	
+	document.getElementById("letters").innerHTML = "";
+	
+	//Reset Chances
+	numberOfChancesLeft = 6;
+	document.getElementById("chances").innerHTML = "<span class='header'>Chances Left:</span> " + numberOfChancesLeft;
+	
+	//Reset LetterGuessed
+	lettersGuessedCorrect = 0;
+	
+	//Reset Secret Word
+	var theSecretWord = "<span class='header'>The Secret Word is:</span> ";
+	randNum = Math.floor( secretWords.length * Math.random() );
+	//alert(secretWords[randNum]);
+	//Create SecretWord with images
+	for(i=0; i<secretWords[randNum].length; i++)
+	{
+		theSecretWord = theSecretWord + "<img id='secretLetter" + i + "' src='pics/blank.gif'>";
+	}
+	document.getElementById("secretWord").innerHTML = theSecretWord;
+	
+	//Hide Start Over Button
+	document.getElementById("startOver").style.visibility = "hidden";
+	
+	//Reset Array
+	lettersGuessed = new Array();
+	
+	//Reset hman pic
+	document.getElementById("hmanPic").src = eval("hman0.src");
+	
+	//Reset winLose Box
+	document.getElementById("winLose").style.visibility = "hidden";
+	
+	//Reset text boxes
+	document.getElementById("theGuess").value = "";
+	document.getElementById("wordGuessText").value = "";
+}
+
+
+function wordAttempt()
+{
+	var theWord = document.getElementById("wordGuessText").value;
+	
+	if(numberOfChancesLeft > 0 && secretWords[randNum].length != lettersGuessedCorrect && theWord != "")
+	{
+		if( secretWords[randNum].toLowerCase() == theWord.toLowerCase() )
+		{
+			endGame("win");
+		}
+		else
+		{
+			alert(theWord + " is not correct.");
+			
+			//Change the hmanPic
+			document.getElementById("hmanPic").src = eval("hman" + numberOfChancesLeft + ".src");
+		
+			//Change the number of chances
+			numberOfChancesLeft = numberOfChancesLeft - 1;
+			document.getElementById("chances").innerHTML = "<span class='header'>Chances Left:</span> " + numberOfChancesLeft;
+			
+			//Reset Word Box
+			document.getElementById("wordGuessText").value = "";
+			
+			//End game if chances are up
+			if(numberOfChancesLeft == 0)
+			{endGame("lost");}
+		}
+	}
+	else if(numberOfChancesLeft > 0 && secretWords[randNum].length != lettersGuessedCorrect && theWord == "")
+	{
+		alert("Please enter a word before submitting your word guess.")
+	}
+	else
+	{
+		alert("The game is over. Click the \"Start Over\" button to play again.");
+	}
+}
+
+
+
+function endGame(gameStatus)
+{
+	if(gameStatus == "lost")
+	{
+		//Notify user that they lost
+		//alert("You lost! The game is over. The secret word was: " + secretWords[randNum]);
+		
+		//Expose the secret word and set the color to red
+		for(i=0; i<secretWords[randNum].length; i++)
+		{
+			 
+			document.getElementById("secretLetter" + i).src = "pics/red" + secretWords[randNum].toUpperCase().charAt(i) + ".gif";
+		}
+		
+		//Show Lost Box
+		document.getElementById("winLose").innerHTML = "Sorry you lost, Loser!"
+		document.getElementById("winLose").style.visibility = "visible";
+		
+		//Show StartOver Button
+		document.getElementById("startOver").style.visibility = "visible";
+	}
+	else if(gameStatus == "win")
+	{
+		//Notify user that they lost
+		//alert("You Win! You Guessed the secret word);
+		
+		//Expose the secret word and set the color to black
+		for(i=0; i<secretWords[randNum].length; i++)
+		{ 
+			document.getElementById("secretLetter" + i).src = "pics/" + secretWords[randNum].toLowerCase().charAt(i) + ".gif";
+		}
+		
+		//Show Win Box
+		document.getElementById("winLose").innerHTML = "You win!! Your Smart!"
+		document.getElementById("winLose").style.visibility = "visible";
+		
+		//Show StartOver Button
+		document.getElementById("startOver").style.visibility = "visible";
+	}
+	
+}
+
+function inCaseSubmitForm()
+{
+	startGuessProcess();
+	return false;
+}
+
+function inCaseWordSubmit()
+{
+	wordAttempt();
+	return false;
+}
+</script>
+
+<style type="text/css">
+div#content {width:700px; padding:0px;}
+div#startOver {visibility:hidden;}
+div#userGuess {width:150px; float:left;}
+div#hmanArea {float:right;}
+div#letters {height:20px;}
+div#winLose {
+position:absolute; 
+top:300px; 
+left:380px; 
+width:150px; 
+border:2px solid #000000; 
+background-color:#FFFFFF; 
+padding:10px; 
+text-align:center;
+visibility:hidden;
+font-size:26px;
+font-weight:bold;
+}
+.header {font-size:14px; font-weight:bold;}
+.bigHeader {font-size:24px; font-weight:bold; width:150px}
+</style>
+</head>
+
+<body onLoad="gameInit()">
+<div id="content">
+	<span class="bigHeader">Hang-Man</span><br>	
+	<span class="header">Try to unveil the secret word by guessing its letters. You will have 6 chances to guess the word, or guess a letter.
+	If you guess incorrectly you will lose a chance and your man will be one step closer to being hung! If you are under 18 you must have 
+	your parents permission to play. Good Luck!</span><br><br>
+	
+	<div id="userGuess">
+	<form name="userGuessForm" onSubmit="return inCaseSubmitForm()">
+	<input id="theGuess" name="theGuess" type="text" size="5" maxlength="1"> 
+	<input type="button" name="submit" value=" Guess A Letter" onClick="startGuessProcess()">
+	
+	<div id="startOver"><input type="button" name="submit" value=" Start Over " onClick="gameInit()"></div>
+	</form>
+	
+		<div id="lettersGuessed">
+			<span class="header">Leters Guessed:</span><br>
+			<div id="letters"></div>
+		</div>
+		
+		<br><br><br>
+		
+		<div id="chancesLeft">
+			<div id="chances"></div>
+		</div>
+		
+		
+	</div>
+	
+	
+	
+	<div id="hmanArea"><img id="hmanPic" src="pics/h0.gif" width="534" height="357"></div>
+	<br clear="all"><br>
+	
+	<div id="secretWord"></div>
+	<br>
+	
+	<div id="wordGuess">
+	<form name="wordGuessForm" onSubmit="return inCaseWordSubmit()">
+	<input id="wordGuessText" name="wordGuess" type="text" size="25">  <input type="button" name="submit" value=" Guess the Word" onClick="wordAttempt()">
+	</form>
+	</div>
+	<hr>
+	<!-- Please leave this link to my site if you use this code!-->
+	Game Created by <a href="http://www.pearweb.com">JavaScript Guru Colin Pear.</a>. : - )<br>
+	<a href="http://www.pearweb.com/javascript/index.html">Download the code</a> for your site.
+	<div id="winLose"></div>
+
+</div>
+</body>
+</html>

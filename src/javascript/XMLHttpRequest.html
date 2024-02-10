@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/pearTemplate.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>XMLHttpRequest - Why Status 0, and StatusText Unknown occur.</title>
+<meta name="Description" content="XMLHttpRequest status 0 and xmlhttprequest statusText unknown. Why these results occur." />
+<meta name="Keywords" content="XMLHttpRequest, XMLHttpRequest.status, XMLHttpRequest.statusText, java script, javascript" />
+<meta name="robots" content="index, follow">
+<!-- InstanceEndEditable -->
+<link href="http://res.pearweb.com/pearweb.css" rel="stylesheet" type="text/css" />
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+
+<div id="main">
+	<div id="header"><div id="logo"><a href="/index.html" title="Pear Web - California Web Design and Web Site Maintenance"><img src="http://res.pearweb.com/graphx-pro/logo_homepage.png" border="0" alt="Pear Web - California Web Design" /></a></div>
+	</div>
+	<div id="navlinks">
+	<a href="/services.php" title="California Web Design Samples">Services</a> |  
+	<a href="/about-us.php" title="About California web design business Pear Web">About Us</a> |
+	<a href="/clients-web-samples.php">Clients/Samples</a> |
+	<a href="/contact.php" title="Contact California website maintenance company Pear Web">Contact</a> |
+	<a href="/javascript/index.html" title="Java Script Games, Java Script Tutorials, and Java Script Downloads">Java Script</a> | 
+	<a href="/blog/" title="Antelope valley web design blog of Colin Pear">Blog</a> | 
+	<a href="/articles/index.html" title="california web maintenance and design articles">Articles</a> |   
+	<a href="/sitemap/index.html">Sitemap</a> </div>
+	<div id="content">
+	<!-- InstanceBeginEditable name="body" -->
+
+
+<h2>XMLHttpRequest status = 0 and XMLHttpRequest statusText = unknown</h2>
+
+<div style="float:right; padding:0px 0px 0px 4px;">
+        <script type="text/javascript"><!--
+google_ad_client = "ca-pub-6589155360858454";
+/* PearWeb - JS2 */
+google_ad_slot = "0465138395";
+google_ad_width = 120;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<p>While trying to put a copy of a website I had onto a CD to be used at a conference I ran into a problem with some AJAX code I was using on some inline pop up definitions I had on the site. These pop ups are essentially definitions that appear when a user does a mouse over on certain words. Code worked on the web server, but when I ran it on my local machine it sort of just broke and stopped working. After a little trial and error I cam to the conclusion that the XMLHttpRequest (XHR) object requires that the code to be executed on a web server to run correctly. I determined this by checking the XMLHttpRequest.status and XMLHttpRequest.statusText properties  at various points in the process.</p>
+
+
+<p>In my code I was using the two basic functions below, with the addition of the two alert() at the beginning of the proccessXML() function:</p>
+
+<div style="padding-left:20px;">
+<code title="XMLHttpRequest Java Script">
+function loadXMLDoc(url, callFunc, ignoreWhite) {<br />
+&nbsp;&nbsp;functionToCall = callFunc;<br />
+&nbsp;&nbsp;stripWS = ignoreWhite;<br />
+&nbsp;&nbsp;xmlRequestObj = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP")<br />
+&nbsp;&nbsp;xmlRequestObj.onreadystatechange = proccessXML;<br />
+&nbsp;&nbsp;xmlRequestObj.open("GET", url, true);<br />
+&nbsp;&nbsp;xmlRequestObj.send(null);<br />
+}<br />
+<br />
+<br />
+function proccessXML() {<br />
+&nbsp;&nbsp;alert(xmlRequestObj status);<br />
+&nbsp;&nbsp;alert(xmlRequestObj.statusText);<br />
+<br />
+&nbsp;&nbsp;if (xmlRequestObj.readyState == 4 && (xmlRequestObj.status == 200 || xmlRequestObj.status == 304)) {<br />
+&nbsp;&nbsp;resultXML = xmlRequestObj.responseXML;<br />
+&nbsp;&nbsp;resultXMLisLoaded = 1;<br />
+&nbsp;&nbsp;functionToCall()<br />
+&nbsp;&nbsp;}<br />
+}<br />
+
+</code>
+</div>
+
+<p>First loadXMLDoc() is called with the url to the xml file passed as a parameter. The function continues on and creates an an XMLHttpRequest object called xmlRequestObj:</p>
+<div style="padding-left:20px;">
+<code title="XMLHttpRequest Object">xmlRequestObj = window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP")
+</code>
+</div>
+
+<p>Next an event handler is created that will call the function processXML() each time the object reaches a new level or state during its attempt to collect the xml stream being passed to it by the server (0 = uninitialized, 1 = open, 2 = sent, 3 = receiving, 4 = loaded or complete):</p>
+<div style="padding-left:20px;">
+<code title="XMLHttpRequest event handler">
+xmlRequestObj.onreadystatechange = proccessXML;
+</code>
+</div>
+
+<p>Then finally the XMLHttpRequest object is told where to get its stream from:</p>
+<div style="padding-left:20px;">
+<code title="XMLHttpRequest open method">
+xmlRequestObj.open("GET", url, true);
+</code>
+</div>
+
+<p>When running the code on the server the two alerts would return the value 200, and the text OK.</p>
+
+<p>When running the code locally I would get XMLHttpRequest status 0, and XMLHttpRequest statusText unknown.</p>
+
+<p>I believe the XMLHttpRequest object needs to receive the header information (A.K.A the HTTP status response) for it run correctly. Since this response is not returned to the object on the local machine it does not, or will not process the xml code stream. </p> 
+
+<p>By <a href="http://www.pearweb.com/index.html" title="Colin Pear Antelope Valley Web Design">Colin Pear</a>, 10/25/2006 -- <a href="index.html">Back to Java Script Tutorials ans lessons learned</a>.</p>
+<!-- InstanceEndEditable -->
+	
+	
+	<div>
+	<br style="clear:both;" />
+		  
+	</div>
+	
+	</div>
+	<div id="footer">
+		<a href="http://www.pearweb.com" title="California web maintenance home">Home</a> | <a href="http://www.pearweb.com/links.html" title="Colin Pear CA web design Links">Links</a> | <a href="http://www.pearweb.com/contact.html" title="Colin Pear CA web design Contact" target="_blank">Contact</a> | <a href="http://www.pearweb.com/blog/" title="Colin Pear CA web design Blog">Blog</a> | <a href="http://www.pearweb.com/sitemap/index.html" title="CA web maintenance sitemap">Sitemap</a><br/>
+		<img src="http://res.pearweb.com/graphx/pixel_blank.gif" width="1" height="4" /><br/>
+		<img src="http://res.pearweb.com/graphx/pixel_blue.gif" width="750" height="2" alt="Divider Bar"/><br/>
+		<img src="http://res.pearweb.com/graphx/pixel_blank.gif" width="1" height="4" /><br/>
+		Copyright 2006-2010 &copy; Colin Pear - <a href="http://www.pearweb.com" title="california web design colin pear">Pear Web&reg;</a> 	
+  </div>
+</div>		
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2946431-1'],['_setDomainName', 'www.pearweb.com'],['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script>
+</body>
+<!-- InstanceEnd --></html>
