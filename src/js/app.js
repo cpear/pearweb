@@ -20,7 +20,7 @@ function Calculate(){
 }
 
 function SetBaseCosts() {
-  HandleElementsByClassName(document.getElementsByClassName("GasPrice"), gasPrice);
+  HandleElementsByClassName(document.getElementsByClassName("GasPrice"), formatMoney.format(gasPrice));
   HandleElementsByClassName(document.getElementsByClassName("AnnualMilesDriven"), annualMilesDriven);
 
   document.getElementById("Mpg").innerText = mpg.toString();
@@ -33,7 +33,7 @@ function SetBaseCosts() {
   let annualFuelCostFormatted = formatMoney.format(annualFuelCost);
   let monthlyFuelCostFormatted = formatMoney.format(monthlyFuelCost);
 
-  document.getElementById("AnnualFuelConsumption").innerText = annualFuelConsumption.toString();
+  document.getElementById("AnnualFuelConsumption").innerText = annualFuelConsumption;
   document.getElementById("AnnualFuelCost").innerText = annualFuelCostFormatted;
   document.getElementById("MonthlyFuelCost").innerText = monthlyFuelCostFormatted;
 }
