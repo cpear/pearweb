@@ -2,7 +2,7 @@ let gasPrice = 0;
 let mpg = 0;
 let annualMilesDriven = 0;
 let reductionPercentage = 0;
-let boosterGasReductionPercentage = reductionPercentage / 100;
+let boosterGasReductionPercentage = 0;
 
 let annualFuelConsumption = 0;
 let annualFuelCost = 0;
@@ -10,9 +10,10 @@ let monthlyFuelCost = 0;
 
 function Calculate(){
   gasPrice = document.getElementById("form-gasPrice").value;
-  mpg = document.getElementById("form-mpg").value;
+  mpg = parseFloat(document.getElementById("form-mpg").value);
   annualMilesDriven = document.getElementById("form-annualMilesDriven").value;
   reductionPercentage = document.getElementById("form-reductionPercentage").value;
+  boosterGasReductionPercentage = reductionPercentage / 100;
 
   SetBaseCosts();
   CalculateSavings();
@@ -39,7 +40,7 @@ function SetBaseCosts() {
 
 
 function CalculateSavings() {
-  let boosterMpg = mpg + (mpg * boosterGasReductionPercentage);
+  let boosterMpg = mpg + parseFloat((mpg * boosterGasReductionPercentage).toFixed(2));
   let boosterAnnualFuelConsumption = (annualMilesDriven/boosterMpg).toFixed(2);
   let boosterAnnualFuelCost = (boosterAnnualFuelConsumption * gasPrice).toFixed(2);
   let boosterMonthlyFuelCost = (boosterAnnualFuelCost / 12).toFixed(2);
