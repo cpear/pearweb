@@ -1,7 +1,0 @@
-table, td, tr {
-  border: 1px solid #e6e6e6;
-}
-
-tr:last-child > td:first-child {
-  text-align: right;
-}
