@@ -7,12 +7,12 @@
 	  <priority>0.3</priority>
    </url>
    <url>
-      <loc>http://www.pearweb.com/services.php</loc>
+      <loc>http://www.pearweb.com/services.html</loc>
       <lastmod>2010-09-01</lastmod>
 	  <priority>0.5</priority>
    </url>
    <url>
-      <loc>http://www.pearweb.com/clients-web-samples.php</loc>
+      <loc>http://www.pearweb.com/clients-web-samples.html</loc>
       <lastmod>2010-09-01</lastmod>
 	  <priority>0.8</priority>
    </url>
@@ -43,7 +43,7 @@
 	  <priority>0.1</priority>
    </url>
    <url>
-      <loc>http://www.pearweb.com/articles/credibility-and-trust.php</loc>
+      <loc>http://www.pearweb.com/articles/credibility-and-trust.html</loc>
       <lastmod>2010-09-01</lastmod>
 	  <priority>0.3</priority>
    </url>
@@ -58,12 +58,12 @@
 	  <priority>0.1</priority>
    </url>
    <url>
-      <loc>http://www.pearweb.com/about-us.php</loc>
+      <loc>http://www.pearweb.com/about-us.html</loc>
       <lastmod>2010-09-01</lastmod>
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://www.pearweb.com/contact.php</loc>
+      <loc>http://www.pearweb.com/contact.html</loc>
       <lastmod>2010-09-01</lastmod>
 	  <priority>0.1</priority>
    </url>
@@ -78,12 +78,12 @@
       <priority>0.6</priority>
    </url>
    <url>
-      <loc>http://www.pearweb.com/lancaster-web-design.php</loc>
+      <loc>http://www.pearweb.com/lancaster-web-design.html</loc>
       <lastmod>2010-09-01</lastmod>
       <priority>0.2</priority>
    </url>
    <url>
-      <loc>http://www.pearweb.com/palmdale-web-design.php</loc>
+      <loc>http://www.pearweb.com/palmdale-web-design.html</loc>
       <lastmod>2010-09-01</lastmod>
       <priority>0.2</priority>
    </url>
