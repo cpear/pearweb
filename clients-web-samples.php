@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Clients and Web Site Design Samples - Pear Web</title>
+<link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<main id="main">
+<header id="header"><div id="logo"><a href="index.html"><img src="images/logo_homepage.png" alt="Pear Web - California Web Design"></a></div></header>
+<nav id="navlinks"><a href="services.php">Services</a> | <a href="about-us.php">About Us</a> | <a href="clients-web-samples.php">Clients/Samples</a> | <a href="contact.html">Contact</a> | <a href="javascript/index.html">Java Script</a> | <a href="blog/">Blog</a> | <a href="articles/index.html">Articles</a> | <a href="sitemap/index.html">Sitemap</a></nav>
+<article id="content">
+<h1>Clients/Web Site Samples</h1>
+<img src="images/websiteBlob.jpg" alt="Antelope Valley web design samples">
+<p>Pear Web offers a full range of web design services. If it's web related we can do it. Pear Web is also a proud member of the Corojo Media Group, which means we have access to talented professionals in the industry.</p>
+<p>Below is a list of some of our current clients and a few samples of what we can provide for your business.</p>
+<h2>Clients</h2>
+<p><a href="http://www.heattech.com/">Heat Tech</a> | <a href="http://www.totalbeautybh.com/">Aesthetic Plastic Surgery Institute of Beverly Hills</a> | <a href="http://www.satmetrix.com/">Satmetrix Systems</a> | <a href="http://www.red-spark.com/">Red-Spark</a> | <a href="http://www.ourweddingplus.com/">Our Wedding Plus</a> | <a href="http://www.redapplemarketing.com/">Red Apple Marketing</a> | <a href="http://www.greenplum.com/">Green Plum</a> | <a href="http://www.finditav.com/">Find IT! AV</a> | <a href="http://www.ranzal.com/">Ranzal &amp; Associates</a> | <a href="http://www.netpromoter.com/">Net Promoter.com</a> | Increa</p>
+<h2>Web Site Design Samples</h2>
+<p><a href="http://www.heattech.com/">Heat Tech</a> - Colin Pear<br><a href="http://www.centerforsleepapnea.com/">Center For Sleep Apnea</a> - Colin Pear<br><a href="http://www.cmfsinstitute.com/">Cranio-Maxillofacial Surgical Institute</a> - Colin Pear<br><a href="http://www.irenepear.com/">Irene Pear - Hair Stylist</a> - Colin Pear<br><a href="http://www.attorneyproz.com/">Attorney Proz</a> - Colin Pear<br><a href="http://www.finditav.com/">Find IT! AV</a> - Colin Pear<br><a href="http://www.ourweddingplus.com/">Our Wedding Plus</a> - Colin Pear, John Schuler, Robert Schuler<br><a href="http://www.michaelglassdds.com/">Dr. Michael L. Glass, DDS</a> - John Schuler</p>
+</article>
+<footer id="footer"><a href="index.html">Home</a> | <a href="links.html">Links</a> | <a href="contact.html">Contact</a> | <a href="blog/">Blog</a> | <a href="sitemap/index.html">Sitemap</a><br><img src="images/pixel_blue.gif" width="750" height="2" alt="Divider Bar"><br>Copyright 2006-2010 &copy; Colin Pear - <a href="index.html">Pear Web&reg;</a></footer>
+</main>
+</body>
+</html>

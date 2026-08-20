@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/pearTemplate.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Lancaster Web Design</title>
+<meta name="Description" content="Lancaster web design contractor for hire. Chosen as the best Antelope Valley Web Design Company. Search Engine Optimization, Web Hosting, Flash Animation and more!" />
+<meta name="Keywords" content="lancaster, web, design, antelope valley, pearweb" />
+<meta name="robots" content="index, follow">
+<!-- InstanceEndEditable -->
+<link href="styles.css" rel="stylesheet" type="text/css" />
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+
+<div id="main">
+	<div id="header"><a href="index.html"><img src="images/logo_homepage.png" border="0" title="Pearweb.com - Antelope Valley Web Design"></a></div>
+	<div id="navlinks">
+	<a href="http://www.pearweb.com/services.php" title="Antelope Valley Web Design Samples">Services</a> |  
+	<a href="http://www.pearweb.com/about-us.php" title="antelope valley web design about">About Us</a> |
+	<a href="clients-web-samples.php">Clients/Samples</a> |
+	<a href="http://www.pearweb.com/contact.php" title="antelope valley web design contact">Contact</a> |||
+	<a href="http://www.pearweb.com/javascript/index.html" title="Java Script Games, Java Script Tutorials, and Java Script Downloads">Java Script</a> | 
+	<a href="http://www.pearweb.com/blog/" title="Antelope valley web design blog of Colin Pear">Blog</a> | 
+	<a href="http://www.pearweb.com/articles/index.html" title="antelope valley web design articles">Articles</a> |   
+	<a href="http://www.pearweb.com/sitemap/index.html">Sitemap</a> </div>
+	<div id="content">
+	<!-- InstanceBeginEditable name="body" -->
+		<h1>Palmdale Web Design</h1>
+		<div style="float:right; padding-left:16px"><style type="text/css">
+.small {font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px;}
+.small-input {font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px; height:15px;}
+</style>
+<form name="frmSurvey" action="/contact.php" method="post">
+<div style="background-image:url(/graphx-pro/back-business-quote.gif); background-repeat:no-repeat; padding:0px 0px 0px 10px;">
+<img src="/graphx-pro/free-quote.gif" width="111" height="68" /><br />
+    <div style="padding-left:4px;">
+    
+    <input class="small-input" type="hidden" name="action" value="sendmail" />
+    
+    <strong class="small">Name:</strong><br>
+    <input class="small-input" type="text" size="15" name="name" /><br>
+    
+    <strong class="small">Email:</strong><br>
+    <input class="small-input" type="text" size="15" name="email" /><br>
+    
+    <strong class="small">Phone:</strong><br>
+    <input class="small-input" type="text" size="15" name="phone" /><br>
+    
+    <strong class="small">Project Description:</strong><br />
+    <textarea class="" cols="15" rows="4" name="description"></textarea>
+    
+    <br />
+    <input type="submit" value= " Submit "/>
+    </div>
+</div>
+</form></div>
+
+<p>When our customers call us for the first time this is what we usually hear, "Hi my name is 'blank' and my company's name is 'blank.' We are in Palmdale and we need a website bad." Businesses trust <a href="http://www.pearweb.com">Pearweb.com</a> to design there web sites. Over the past few years we have developed an excellent reputation. We have what it takes to design your company�s web site.</p>
+
+<p><a href="http://www.pearweb.com">Pearweb.com</a> is a <b>Palmdale Web Design</b> firm. We are located in Mojave, CA, but we service the entire <i>Antelope Valley</i>. If you�re looking to build a web site then we are the people to contact.</p>
+
+<p>Some of our services include:</p>
+
+<ul>
+<li>Web Hosting</li>
+<li>Search Engine Optimization for your <i>Palmdale</i> business</li>
+<li><i>Web Design</i></li>
+<li>Web Application Development</li>
+<li>Flash Animation</li>
+<li>And More!</li>
+</ul>
+	<!-- InstanceEndEditable -->
+	
+	
+	<div>
+	<br style="clear:both;" />
+		  
+	</div>
+	
+	</div>
+	<div id="footer">
+		<a href="http://www.pearweb.com" title="antelope valley web design home">Home</a> | <a href="http://www.pearweb.com/links.html" title="Colin Pear av web design Links">Links</a> | <a href="http://www.pearweb.com/contact.html" title="Colin Pear av web design Contact" target="_blank">Contact</a> | <a href="http://www.pearweb.com/blog/" title="Colin Pear av web design Blog">Blog</a> | <a href="http://www.pearweb.com/sitemap/index.html" title="av web design colin pear sitemap">Sitemap</a><br/>
+		<img src="graphx/pixel_blank.gif" width="1" height="4"><br/>
+		<img src="graphx/pixel_blue.gif" width="750" height="2" alt="Divider Bar"/><br/>
+		<img src="graphx/pixel_blank.gif" width="1" height="4"><br/>
+		Copyright 2006, 2007 &copy; Colin Pear - <a href="http://www.pearweb.com" title="antelope valley web design colin pear">Pear Web</a> 	
+  </div>
+</div>		
+		
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2946431-1";
+urchinTracker();
+</script>
+</body>
+<!-- InstanceEnd --></html>

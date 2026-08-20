@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>About Our California Web Site Design Company - Pear Web</title>
+<link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<main id="main">
+<header id="header"><div id="logo"><a href="index.html"><img src="images/logo_homepage.png" alt="Pear Web - California Web Design"></a></div></header>
+<nav id="navlinks"><a href="services.php">Services</a> | <a href="about-us.php">About Us</a> | <a href="clients-web-samples.php">Clients/Samples</a> | <a href="contact.html">Contact</a> | <a href="javascript/index.html">Java Script</a> | <a href="blog/">Blog</a> | <a href="articles/index.html">Articles</a> | <a href="sitemap/index.html">Sitemap</a></nav>
+<article id="content">
+<h1>About Our California Web Site Design Company</h1>
+<p>The professional web design team at Pear Web is here to help those with any kind of web site need. Each web design project we take on is tailored to fit our customer's needs. Whether it's an advanced database driven web application or a simple website we have the capabilities to fulfill any need.</p>
+<p>Pear Web is based in California near Lancaster, Palmdale, Tehachapi, Mojave, and California City. We are located in the middle of the Mojave Desert where we have nothing to do but work on designing web sites. That's good news because it allows us to stay on top of the latest trends and developments in the web design industry.</p>
+<p>Our services and technical skills include: Web Design, Graphic Design, Web Hosting, and Database Development and more. Our development team is also fluent in just about every web technology used in the industry today. This list includes: HTML, DHTML, XML, XSL, Java Script, PHP, ASP, JSP, SQL, AJAX, Flash animations and more! <a href="contact.html">Contact us today</a>.</p>
+</article>
+<footer id="footer"><a href="index.html">Home</a> | <a href="links.html">Links</a> | <a href="contact.html">Contact</a> | <a href="blog/">Blog</a> | <a href="sitemap/index.html">Sitemap</a><br><img src="images/pixel_blue.gif" width="750" height="2" alt="Divider Bar"><br>Copyright 2006-2010 &copy; Colin Pear - <a href="index.html">Pear Web&reg;</a></footer>
+</main>
+</body>
+</html>
